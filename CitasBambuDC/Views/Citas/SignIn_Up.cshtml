@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Sign In/Up";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/login_signup.css" />
+
+<h2>Inicie sesión o cree una cuenta para continuar</h2>
+<div class="container" id="container">
+    <div class="form-container sign-up-container">
+        <form action="#">
+            <h1>Crear Cuenta</h1>
+            <span>Debe ingresar correo y contraseña</span>
+            <input type="text" placeholder="Nombre" />
+            <input type="email" placeholder="Correo" />
+            <input type="password" placeholder="Contraseña" />
+            <button>Registrarme</button>
+        </form>
+    </div>
+    <div class="form-container sign-in-container">
+        <form action="#">
+            <h1>Iniciar Sesión</h1>
+            <span>Ingrese sus credenciales</span>
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password" />
+            <a href="#">Forgot your password?</a>
+            <button>Sign In</button>
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Welcome Back!</h1>
+                <p>To keep connected with us please login with your personal info</p>
+                <button class="ghost" id="signIn">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Hello, Friend!</h1>
+                <p>Enter your personal details and start journey with us</p>
+                <button class="ghost" id="signUp">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>
+        <a> Bambú Dental Care </a>
+    </p>
+</footer>
+
+<script>
+
+        const signUpButton = document.getElementById('signUp');
+        const signInButton = document.getElementById('signIn');
+        const container = document.getElementById('container');
+
+        signUpButton.addEventListener('click', () => {
+            container.classList.add("right-panel-active");
+        });
+
+        signInButton.addEventListener('click', () => {
+            container.classList.remove("right-panel-active");
+        });
+
+</script>
+
