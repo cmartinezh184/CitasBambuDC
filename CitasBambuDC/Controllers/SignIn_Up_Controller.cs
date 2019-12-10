@@ -6,11 +6,12 @@ using System.Web.Mvc;
 
 namespace CitasBambuDC.Controllers
 {
-    public class HomeController : Controller
+    public class SignIn_Up_Controller : Controller
     {
+        // GET: SignIn_Up_
         public ActionResult Index()
         {
-            return View("~/Views/Citas/Appointment.cshtml");
+            return View();
         }
     }
 }
