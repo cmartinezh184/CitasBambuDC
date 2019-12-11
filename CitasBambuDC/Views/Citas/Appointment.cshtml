@@ -8,9 +8,19 @@
         <div class="form-container appointment-container">
             <form action="#">
                 <h2>Agendar Cita</h2>
-                <input id="nombreCompletoCita" placeholder="Su nombre completo aquí" size="60" />
-                <input id="correoCita" placeholder="Correo al que desea ser notificado" size="60" />
-                <input id="fechaCita" placeholder="Seleccione una fecha" class="datepicker" size="60" />
+                <input id="nombreCompletoCita" placeholder="Su nombre completo aquí"/>
+                <input id="correoCita" placeholder="Correo al que desea ser notificado"/>
+                <select id="fechasDisponiblesCita">
+                    <option disabled selected style="visibility: hidden">Fechas disponibles para las citas</option>
+                    <option> 24/12/2019</option>
+                    <option> 15/1/2020 </option>
+                </select>
+                <select id="descripcionServicio">
+                    <option disabled selected style="visibility: hidden"> Seleccione el servicio de la clínica a utilizar</option>
+                    <option> Radiología </option>
+                    <option> Revisión </option>
+                    <option> Extracción </option>
+                </select>
                 <br />
                 <br />
                 <button> Reservar </button>

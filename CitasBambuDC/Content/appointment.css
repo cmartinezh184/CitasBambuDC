@@ -32,10 +32,25 @@ input {
     margin: 8px 0;
     width: 75%;
 }
-
     input:focus {
         outline: 0px;
     }
+
+select {
+    background-color: #eee;
+    border-radius: 50px;
+    padding: 12px 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin: 8px 0;
+    width: 75%;
+}
+
+
+    select:focus {
+        outline: 0px;
+    }
+
 
 form {
     background-color: #3D62A8;

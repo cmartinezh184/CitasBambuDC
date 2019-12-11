@@ -135,6 +135,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\list_appointments.css" />
     <Content Include="Content\login_signup.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -209,6 +210,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Citas\SignIn_Up.cshtml" />
     <Content Include="Views\Citas\Appointment.cshtml" />
+    <Content Include="Views\Citas\ListAppointments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
