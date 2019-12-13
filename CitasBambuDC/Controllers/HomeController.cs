@@ -12,5 +12,6 @@ namespace CitasBambuDC.Controllers
         {
             return View("~/Views/Citas/SignIn_Up.cshtml");
         }
+
     }
 }
