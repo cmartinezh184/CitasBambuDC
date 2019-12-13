@@ -10,7 +10,8 @@ namespace CitasBambuDC.Controllers
     {
         public ActionResult Index()
         {
-            return View("~/Views/Citas/ListAppointments.cshtml");
+            return View("~/Views/Citas/SignIn_Up.cshtml");
         }
+
     }
 }
