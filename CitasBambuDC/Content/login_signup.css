@@ -245,7 +245,7 @@ input:focus {
 
 footer {
     background-color: #3D62A8;
-    color: #fff;
+    color: #ffffff;
     font-size: 14px;
     bottom: 0;
     position: fixed;
@@ -264,6 +264,6 @@ footer {
     }
 
     footer a {
-        color: #3c97bf;
+        color: #ffffff;
         text-decoration: none;
     }
