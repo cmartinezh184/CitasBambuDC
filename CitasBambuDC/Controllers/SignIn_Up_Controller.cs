@@ -16,10 +16,32 @@ namespace CitasBambuDC.Controllers
         }
 
         [HttpPost]
-        public ActionResult SingIn_Up(int nombre, string email, string password)
+        public ActionResult Register(string nombre, string segundoNombre, string primerApellido,
+            string segundoApellido, int cedulaPersona, string telefonoPersona,
+            string email, string password)
         {
             BambuWS.WSDBSoapClient WS = new BambuWS.WSDBSoapClient();
+            if(WS.CrearUsuario(cedulaPersona, nombre,segundoNombre,primerApellido, segundoApellido, telefonoPersona, email, password))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult Login(string correoLogin, string passwordLogin)
+        {
+            BambuWS.WSDBSoapClient WS = new BambuWS.WSDBSoapClient();
+            if(WS.LogIn(correoLogin, passwordLogin))
+            {
+                return RedirectToAction("ListAppointments", "Citas");
+            }
+            else
+            {
+                ViewBag.ErrorMessage="Credenciales Incorrectos";
+                return RedirectToAction("Index", "Home");
+            }
         }
     }
 }

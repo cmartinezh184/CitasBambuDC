@@ -21,9 +21,9 @@ namespace CitasBambuDC.Controllers
         /// Pagina de inicio de sesion
         /// </summary>
         /// <returns></returns>
-        public ActionResult LogIn()
+        public ActionResult ListAppointments()
         {
-            return View();
+            return View("~/Views/Citas/ListAppointments.cshtml");
         }
 
         /// <summary>
