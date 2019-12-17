@@ -1,12 +1,11 @@
 ﻿
-@{
-    ViewBag.Title = "ListAppointments";
-}
+@if (Session["UserType"] != null && Session["UserType"].Equals(false))
+{
 
-<link rel="stylesheet" type="text/css" href="~/Content/list_appointment.css" />
-<link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css" />
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" 
- integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="~/Content/list_appointment.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
     <body>
         <div class="row" style="width: 1400px">
@@ -198,3 +197,8 @@
             </div>
         </div>
     </body>
+}
+@if (Session["UserType"] == null | (Session["UserType"] != null && Session["UserType"].Equals(true)))
+{
+    Response.Redirect("~/Views/Citas/SignIn_Up");
+}

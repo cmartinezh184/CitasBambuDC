@@ -15,13 +15,40 @@ namespace CitasBambuDC.Controllers
             return View("~/Views/Citas/SignIn_Up.cshtml");
         }
 
+        //public ActionResult LogIn()
+        //{
+        //    if (Session["UserType"] != null)
+        //    {
+        //        return RedirectToAction("");
+        //    }
+        //    return View();
+        //}
+
+        //public ActionResult AdminLogIn()
+        //{
+        //    if (Session["UserType"] != null)
+        //    {
+        //        return RedirectToAction("");
+        //    }
+        //    return View();
+        //}
+
+        //public ActionResult LogOut()
+        //{
+        //    if (Session["UserType"] != null)
+        //    {
+        //        Session["UserType"] = null;
+        //    }
+        //    return RedirectToAction("");
+        //}
+
         [HttpPost]
         public ActionResult Register(string nombre, string segundoNombre, string primerApellido,
             string segundoApellido, int cedulaPersona, string telefonoPersona,
             string email, string password)
         {
             BambuWS.WSDBSoapClient WS = new BambuWS.WSDBSoapClient();
-            if(WS.CrearUsuario(cedulaPersona, nombre,segundoNombre,primerApellido, segundoApellido, telefonoPersona, email, password))
+            if(WS.CrearUsuario(cedulaPersona, nombre,segundoNombre,primerApellido, segundoApellido, telefonoPersona, email, password)) 
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -33,8 +60,12 @@ namespace CitasBambuDC.Controllers
         public ActionResult Login(string correoLogin, string passwordLogin)
         {
             BambuWS.WSDBSoapClient WS = new BambuWS.WSDBSoapClient();
-            if(WS.LogIn(correoLogin, passwordLogin))
+            var persona = WS.LogIn(correoLogin, passwordLogin);
+            if (WS.LogIn(correoLogin, passwordLogin)!= null)
             {
+                Session["UserType"] = persona.EsAdmin;
+                Session["PersonaID"] = persona.PersonaID.ToString();
+                Session["Cedula"] = persona.PersonaID.ToString();
                 return RedirectToAction("ListAppointments", "Citas");
             }
             else
