@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "EditAppointment";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/appointment.css" />
+
+<div class="container" id="container">
+    <div class="form-container appointment-container">
+        <form action="#">
+            <h2>Editar Cita</h2>
+            <input id="nombreCompletoCitaNuevo" placeholder="Cambie del nombre de la persona a recibir el servicio de la cita" />
+            <input id="cedulaPersonaNuevaCita" placeholder="Ingrese la cédula de la persona a utilizar el servicio" />
+            <input id="correoCitaNuevo" placeholder="Correo de la persona al que desea ser notificado" />
+            <select id="fechasDisponiblesNuevaCita">
+                <option disabled selected style="visibility: hidden">Fechas disponibles para las citas</option>
+                <option> 24/12/2019</option>
+                <option> 15/1/2020 </option>
+            </select>
+            <select id="descripcionServicioNueva">
+                <option disabled selected style="visibility: hidden"> Seleccione el servicio nuevo de la clínica a utilizar</option>
+                <option> Radiología </option>
+                <option> Revisión </option>
+                <option> Extracción </option>
+            </select>
+            <br />
+            <br />
+            <button> Salvar nueva cita </button>
+        </form>
+    </div>
+</div>
+
