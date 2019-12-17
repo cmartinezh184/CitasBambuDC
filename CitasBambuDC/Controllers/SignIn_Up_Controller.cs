@@ -12,7 +12,7 @@ namespace CitasBambuDC.Controllers
         // GET: SignIn_Up_
         public ActionResult Index()
         {
-            return View();
+            return View("~/Views/Citas/SignIn_Up.cshtml");
         }
 
         [HttpPost]
@@ -39,8 +39,8 @@ namespace CitasBambuDC.Controllers
             }
             else
             {
-                ViewBag.ErrorMessage="Credenciales Incorrectos";
-                return RedirectToAction("Index", "Home");
+                ViewData["Message"] = "Credenciales Incorrectas";
+                return View("~/Views/Citas/SignIn_Up.cshtml");
             }
         }
     }

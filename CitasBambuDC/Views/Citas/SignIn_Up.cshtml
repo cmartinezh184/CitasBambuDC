@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Sign In/Up";
 }
 <link rel="stylesheet" type="text/css" href="~/Content/login_signup.css" />
@@ -36,7 +35,9 @@
                 <input type="email" name="correoLogin" placeholder="Correo" />
                 <input type="password" name="passwordLogin" placeholder="Contraseña" />
                 <a href="#">¿Olvidaste tu contraseña?</a>
-                 @ViewBag.ErrorMessage
+                <div style="color: red">
+                    <h6>@ViewData["Message"]</h6>
+                </div>  
                 <button type="submit">Iniciar Sesión</button>
             </form>
         }
