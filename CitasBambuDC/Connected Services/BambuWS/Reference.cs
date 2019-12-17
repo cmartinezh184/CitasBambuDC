@@ -317,6 +317,13 @@ namespace CitasBambuDC.BambuWS {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CitasDeCliente", ReplyAction="*")]
         System.Threading.Tasks.Task<CitasBambuDC.BambuWS.CitasDeClienteResponse> CitasDeClienteAsync(CitasBambuDC.BambuWS.CitasDeClienteRequest request);
         
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento ListaDeCitasResult del espacio de nombres http://tempuri.org/ no está marcado para aceptar valores nil.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ListaDeCitas", ReplyAction="*")]
+        CitasBambuDC.BambuWS.ListaDeCitasResponse ListaDeCitas(CitasBambuDC.BambuWS.ListaDeCitasRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ListaDeCitas", ReplyAction="*")]
+        System.Threading.Tasks.Task<CitasBambuDC.BambuWS.ListaDeCitasResponse> ListaDeCitasAsync(CitasBambuDC.BambuWS.ListaDeCitasRequest request);
+        
         // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento InfoPersonaResult del espacio de nombres http://tempuri.org/ no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InfoPersona", ReplyAction="*")]
         CitasBambuDC.BambuWS.InfoPersonaResponse InfoPersona(CitasBambuDC.BambuWS.InfoPersonaRequest request);
@@ -641,6 +648,67 @@ namespace CitasBambuDC.BambuWS {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class ListaDeCitasRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="ListaDeCitas", Namespace="http://tempuri.org/", Order=0)]
+        public CitasBambuDC.BambuWS.ListaDeCitasRequestBody Body;
+        
+        public ListaDeCitasRequest() {
+        }
+        
+        public ListaDeCitasRequest(CitasBambuDC.BambuWS.ListaDeCitasRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class ListaDeCitasRequestBody {
+        
+        public ListaDeCitasRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class ListaDeCitasResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="ListaDeCitasResponse", Namespace="http://tempuri.org/", Order=0)]
+        public CitasBambuDC.BambuWS.ListaDeCitasResponseBody Body;
+        
+        public ListaDeCitasResponse() {
+        }
+        
+        public ListaDeCitasResponse(CitasBambuDC.BambuWS.ListaDeCitasResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class ListaDeCitasResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public CitasBambuDC.BambuWS.SerializableCita[] ListaDeCitasResult;
+        
+        public ListaDeCitasResponseBody() {
+        }
+        
+        public ListaDeCitasResponseBody(CitasBambuDC.BambuWS.SerializableCita[] ListaDeCitasResult) {
+            this.ListaDeCitasResult = ListaDeCitasResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class InfoPersonaRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="InfoPersona", Namespace="http://tempuri.org/", Order=0)]
@@ -866,6 +934,29 @@ namespace CitasBambuDC.BambuWS {
             inValue.Body = new CitasBambuDC.BambuWS.CitasDeClienteRequestBody();
             inValue.Body.cedula = cedula;
             return ((CitasBambuDC.BambuWS.WSDBSoap)(this)).CitasDeClienteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        CitasBambuDC.BambuWS.ListaDeCitasResponse CitasBambuDC.BambuWS.WSDBSoap.ListaDeCitas(CitasBambuDC.BambuWS.ListaDeCitasRequest request) {
+            return base.Channel.ListaDeCitas(request);
+        }
+        
+        public CitasBambuDC.BambuWS.SerializableCita[] ListaDeCitas() {
+            CitasBambuDC.BambuWS.ListaDeCitasRequest inValue = new CitasBambuDC.BambuWS.ListaDeCitasRequest();
+            inValue.Body = new CitasBambuDC.BambuWS.ListaDeCitasRequestBody();
+            CitasBambuDC.BambuWS.ListaDeCitasResponse retVal = ((CitasBambuDC.BambuWS.WSDBSoap)(this)).ListaDeCitas(inValue);
+            return retVal.Body.ListaDeCitasResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<CitasBambuDC.BambuWS.ListaDeCitasResponse> CitasBambuDC.BambuWS.WSDBSoap.ListaDeCitasAsync(CitasBambuDC.BambuWS.ListaDeCitasRequest request) {
+            return base.Channel.ListaDeCitasAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<CitasBambuDC.BambuWS.ListaDeCitasResponse> ListaDeCitasAsync() {
+            CitasBambuDC.BambuWS.ListaDeCitasRequest inValue = new CitasBambuDC.BambuWS.ListaDeCitasRequest();
+            inValue.Body = new CitasBambuDC.BambuWS.ListaDeCitasRequestBody();
+            return ((CitasBambuDC.BambuWS.WSDBSoap)(this)).ListaDeCitasAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

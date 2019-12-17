@@ -23,8 +23,17 @@ namespace CitasBambuDC.Controllers
         /// <returns></returns>
         public ActionResult ListAppointments()
         {
-            return View("~/Views/Citas/ListAppointments.cshtml");
+            BambuWS.WSDBSoapClient WS = new BambuWS.WSDBSoapClient();
+            var citas = WS.ListaDeCitas();
+            return View("~/Views/Citas/ListAppointments.cshtml", citas.ToList());
         }
+
+        public ActionResult ListAppointmentsCitas()
+        {
+            return View("~/Views/Citas/ListAppointmentsClient.cshtml");
+        }
+
+
 
         /// <summary>
         /// Metodo para cerrar la sesion del usuario

@@ -66,15 +66,21 @@ namespace CitasBambuDC.Controllers
                 Session["UserType"] = persona.EsAdmin;
                 Session["PersonaID"] = persona.PersonaID.ToString();
                 Session["Cedula"] = persona.PersonaID.ToString();
-                if (Session["UserType"].Equals(false))
+                if (Session["UserType"].Equals(true))
                 {
-
+                    return RedirectToAction("ListAppointments", "Citas");
+                }
+                else if (Session["UserType"].Equals(false))
+                {
+                    return RedirectToAction("ListAppointmentsCitas", "Citas");
+      
                 }
                 else
                 {
-
+                    ViewData["Message"] = "Credenciales Incorrectas";
+                    return View("~/Views/Citas/SignIn_Up.cshtml");
                 }
-                return RedirectToAction("ListAppointments", "Citas");
+                
             }
             else
             {

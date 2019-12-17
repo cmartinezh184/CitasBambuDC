@@ -122,6 +122,16 @@
           <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
         </s:sequence>
       </s:complexType>
+      <s:element name="ListaDeCitas">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListaDeCitasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaDeCitasResult" type="tns:ArrayOfSerializableCita" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="InfoPersona">
         <s:complexType>
           <s:sequence>
@@ -174,6 +184,12 @@
   <wsdl:message name="CitasDeClienteSoapOut">
     <wsdl:part name="parameters" element="tns:CitasDeClienteResponse" />
   </wsdl:message>
+  <wsdl:message name="ListaDeCitasSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaDeCitas" />
+  </wsdl:message>
+  <wsdl:message name="ListaDeCitasSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaDeCitasResponse" />
+  </wsdl:message>
   <wsdl:message name="InfoPersonaSoapIn">
     <wsdl:part name="parameters" element="tns:InfoPersona" />
   </wsdl:message>
@@ -204,6 +220,10 @@
     <wsdl:operation name="CitasDeCliente">
       <wsdl:input message="tns:CitasDeClienteSoapIn" />
       <wsdl:output message="tns:CitasDeClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeCitas">
+      <wsdl:input message="tns:ListaDeCitasSoapIn" />
+      <wsdl:output message="tns:ListaDeCitasSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="InfoPersona">
       <wsdl:input message="tns:InfoPersonaSoapIn" />
@@ -259,6 +279,15 @@
     </wsdl:operation>
     <wsdl:operation name="CitasDeCliente">
       <soap:operation soapAction="http://tempuri.org/CitasDeCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeCitas">
+      <soap:operation soapAction="http://tempuri.org/ListaDeCitas" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -325,6 +354,15 @@
     </wsdl:operation>
     <wsdl:operation name="CitasDeCliente">
       <soap12:operation soapAction="http://tempuri.org/CitasDeCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeCitas">
+      <soap12:operation soapAction="http://tempuri.org/ListaDeCitas" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

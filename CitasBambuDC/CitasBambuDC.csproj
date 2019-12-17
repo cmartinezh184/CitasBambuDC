@@ -160,6 +160,9 @@
     <Content Include="Connected Services\BambuWS\CitasBambuDC.BambuWS.ReservarCitaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\BambuWS\CitasBambuDC.BambuWS.ListaDeCitasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\BambuWS\WSDB.disco" />
     <None Include="Connected Services\BambuWS\configuration91.svcinfo" />
     <None Include="Connected Services\BambuWS\configuration.svcinfo" />
