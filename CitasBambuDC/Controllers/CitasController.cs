@@ -156,20 +156,46 @@ namespace CitasBambuDC.Controllers
         }
 
         /// <summary>
-        /// Metodo para cerrar la sesion del usuario
+        /// Vista para que el Admin Agrege nuevos espacios de Citas
         /// </summary>
         /// <returns></returns>
-        public ActionResult LogOut()
+        public ActionResult NombredelaNuevaVista()// en el espacio NombredelaNuevaVista se coloca el nombre que le puso kevin a la Nueva Vista
         {
+            bool IsPostBack = false;
+            if (!IsPostBack)
+            {
+                Response.Cache.SetCacheability(HttpCacheability.ServerAndNoCache);
+                Response.Cache.SetAllowResponseInBrowserHistory(false);
+                Response.Cache.SetNoStore();
+            }
+            if (Convert.ToString(Session["login"]) != "YES")
+            {
+                Session.Abandon();
+                FormsAuthentication.SignOut();
+                return View("~/Views/Citas/SignIn_Up.cshtml");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CrearNuevaCita(string year, string mes, string dia, string hora)// estas variables vienen de la Vista
+        {
+            BambuWS.WSDBSoapClient WS = new BambuWS.WSDBSoapClient();
+            string fechaCompleta = year + "/" + mes + "/" +dia+" "+hora;
+            DateTime fecha =  DateTime.Parse(fechaCompleta);
             return View();
         }
 
         /// <summary>
-        /// Pagina de borrado o cancelado de citas
+        /// Pagina de borrado de citas
         /// </summary>
         /// <returns></returns>
-        public ActionResult CancelarCita()
+        [HttpPost]
+        public ActionResult BorrarCita(string id)//el id extraido de la vista para borrar la Cita
         {
+            BambuWS.WSDBSoapClient WS = new BambuWS.WSDBSoapClient();
+            int idInt = Convert.ToInt32(id);
+            WS.BorrarCita(idInt);
             return View();
         }       
     }
