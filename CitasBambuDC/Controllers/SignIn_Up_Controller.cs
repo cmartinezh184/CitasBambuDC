@@ -35,7 +35,7 @@ namespace CitasBambuDC.Controllers
             BambuWS.WSDBSoapClient WS = new BambuWS.WSDBSoapClient();
             if(WS.CrearUsuario(cedulaPersona, nombre,segundoNombre,primerApellido, segundoApellido, telefonoPersona, email, password)) 
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("SignIn_Up_", "Home");
             }
             return View();
         }
