@@ -6,8 +6,12 @@
 
     <div class="container" id="container">
         <div class="form-container appointment-container">
+            </form>
             @using (Html.BeginForm("CrearAppointment", "Citas", FormMethod.Post))
             {
+                <button id="backToList" type="button" class="btn-backTo" style="width:1px">
+                    <img alt="volver a lista de pacientes" src="~/Imgs/back.png" />
+                </button>
                 <form action="#">
                     <h2>Agendar Cita</h2>
                     <input id="nombreCompletoCita" placeholder="Su nombre completo aquí" />
