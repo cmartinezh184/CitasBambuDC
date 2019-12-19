@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using CitasBambuDC.Models;
 
 namespace CitasBambuDC.Controllers
@@ -19,11 +20,25 @@ namespace CitasBambuDC.Controllers
         }
 
         /// <summary>
-        /// Pagina de inicio de sesion
+        /// Listas para el Admin
         /// </summary>
         /// <returns></returns>
         public ActionResult ListAppointments()
         {
+            bool IsPostBack = false;
+            if (!IsPostBack)
+            {
+                Response.Cache.SetCacheability(HttpCacheability.ServerAndNoCache);
+                Response.Cache.SetAllowResponseInBrowserHistory(false);
+                Response.Cache.SetNoStore();
+            }
+            if (Convert.ToString(Session["login"]) != "YES")
+            {
+                Session.Abandon();
+                FormsAuthentication.SignOut();
+                return View("~/Views/Citas/SignIn_Up.cshtml");
+            }
+            Session["StartTime"] = System.DateTime.Now.ToString("yyyyMMdd HH:mm:ss");
             BambuWS.WSDBSoapClient WS = new BambuWS.WSDBSoapClient();
             var citas = WS.ListaDeCitas();
             
@@ -40,9 +55,26 @@ namespace CitasBambuDC.Controllers
             }
             return View("~/Views/Citas/ListAppointments.cshtml", listaCitas);
         }
-
+        /// <summary>
+        /// Listas para los Clientes
+        /// </summary>
+        /// <returns></returns>
         public ActionResult ListAppointmentsCitas()
         {
+            bool IsPostBack = false;
+            if (!IsPostBack)
+            {
+                Response.Cache.SetCacheability(HttpCacheability.ServerAndNoCache);
+                Response.Cache.SetAllowResponseInBrowserHistory(false);
+                Response.Cache.SetNoStore();
+            }
+            if (Convert.ToString(Session["login"]) != "YES")
+            {
+                Session.Abandon();
+                FormsAuthentication.SignOut();
+                return View("~/Views/Citas/SignIn_Up.cshtml");
+            }
+            Session["StartTime"] = System.DateTime.Now.ToString("yyyyMMdd HH:mm:ss");
             BambuWS.WSDBSoapClient WS = new BambuWS.WSDBSoapClient();
             var citas = WS.ListaDeCitas();
 
@@ -61,11 +93,25 @@ namespace CitasBambuDC.Controllers
         }
 
         /// <summary>
-        /// Método para ver la Vista
+        /// Método para ver la Vista de Reservar
         /// </summary>
         /// <returns></returns>
         public ActionResult Appointment()
         {
+            bool IsPostBack = false;
+            if (!IsPostBack)
+            {
+                Response.Cache.SetCacheability(HttpCacheability.ServerAndNoCache);
+                Response.Cache.SetAllowResponseInBrowserHistory(false);
+                Response.Cache.SetNoStore();
+            }
+            if (Convert.ToString(Session["login"]) != "YES")
+            {
+                Session.Abandon();
+                FormsAuthentication.SignOut();
+                return View("~/Views/Citas/SignIn_Up.cshtml");
+            }
+            Session["StartTime"] = System.DateTime.Now.ToString("yyyyMMdd HH:mm:ss");
             BambuWS.WSDBSoapClient WS = new BambuWS.WSDBSoapClient();
             var citas = WS.ListaDeCitas();
 
@@ -86,6 +132,13 @@ namespace CitasBambuDC.Controllers
             return View(listaCitas);
         }
 
+        /// <summary>
+        /// Método para que el Cliente Reserve una Cita
+        /// </summary>
+        /// <param name="cedula"></param>
+        /// <param name="fecha"></param>
+        /// <param name="descripcion"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult CrearAppointment(string cedula, DateTime fecha, string descripcion)
         {
@@ -112,31 +165,12 @@ namespace CitasBambuDC.Controllers
         }
 
         /// <summary>
-        /// Pagina de creacion de citas para los administradores
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult CrearCita()
-        {
-            return View();
-        }
-
-        /// <summary>
         /// Pagina de borrado o cancelado de citas
         /// </summary>
         /// <returns></returns>
         public ActionResult CancelarCita()
         {
             return View();
-        }
-
-        /// <summary>
-        /// Pagina para reservar una cita
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult ReservarCita()
-        {
-            return View();
-        }
-       
+        }       
     }
 }

@@ -11,15 +11,15 @@
                 <form action="#">
                     <h2>Agendar Cita</h2>
                     <input id="nombreCompletoCita" placeholder="Su nombre completo aquí" />
-                    <input id="cedulaPersonaCita" name="cedula" placeholder="Ingrese su cédula aquí" />
-                    <select id="fechasDisponiblesCita" name="fecha">
+                    <input id="cedulaPersonaCita" name="cedula" placeholder="Ingrese su cédula aquí" required = "required"/>
+                    <select id="fechasDisponiblesCita" name="fecha" required = "required">
                         <option disabled selected style="visibility: hidden">Fechas disponibles para las citas</option>
                         @foreach (var item in Model)
                         {
                             <option>@item.Fecha</option>
                         }
                     </select>
-                    <select id="descripcionServicio" name="descripcion">
+                    <select id="descripcionServicio" name="descripcion" required = "required">
                         <option disabled selected style="visibility: hidden"> Seleccione el servicio de la clínica a utilizar</option>
                         <option> Radiología </option>
                         <option> Revisión </option>

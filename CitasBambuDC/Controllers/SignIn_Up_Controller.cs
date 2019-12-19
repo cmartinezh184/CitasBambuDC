@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace CitasBambuDC.Controllers
 {
@@ -12,6 +13,16 @@ namespace CitasBambuDC.Controllers
         // GET: SignIn_Up_
         public ActionResult Index()
         {
+            Session.Contents.Remove("login");
+            FormsAuthentication.SignOut();
+            Session.Timeout = 1;
+            bool IsPostBack = false;
+            if (!IsPostBack)
+            {
+                Response.Cache.SetCacheability(HttpCacheability.ServerAndNoCache);
+                Response.Cache.SetAllowResponseInBrowserHistory(false);
+                Response.Cache.SetNoStore();
+            }
             return View("~/Views/Citas/SignIn_Up.cshtml");
         }
 
@@ -37,6 +48,8 @@ namespace CitasBambuDC.Controllers
             var persona = WS.LogIn(correoLogin, passwordLogin);
             if (WS.LogIn(correoLogin, passwordLogin)!= null)
             {
+                Session["login"] = "YES";
+                Session.Timeout = 10;
                 Session["UserType"] = persona.EsAdmin;
                 Session["PersonaID"] = persona.PersonaID.ToString();
                 Session["Cedula"] = persona.PersonaID.ToString();
@@ -51,6 +64,8 @@ namespace CitasBambuDC.Controllers
                 }
                 else
                 {
+                    Session["login"] = "NO";
+                    Session.Timeout = 1;
                     ViewData["Message"] = "Credenciales Incorrectas";
                     return View("~/Views/Citas/SignIn_Up.cshtml");
                 }
