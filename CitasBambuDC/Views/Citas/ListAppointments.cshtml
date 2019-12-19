@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<CitasBambuDC.Models.Cita>
+
 @if (Session["UserType"] != null && Session["UserType"].Equals(true))
 {
 
@@ -14,7 +15,7 @@
                     <thead class="thead-inverse">
                         <tr>
                             <th scope="col" width="120px">Editar cita</th>
-                            <th scope="col">Id Cita</th>
+                            <th scope="col">Cita</th>
                             <th scope="col">Paciente</th>
                             <th scope="col">Fecha</th>
                             <th scope="col">Descripción</th>
@@ -23,178 +24,25 @@
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td class="td-btn">
-                                    <button type="button"
-                                            class="btn">
-                                        <span class="fas fa-edit"></span>
-                                    </button>
-                                </td>
-                                <th scope="row">@Html.DisplayFor(modelItem => item.CitasID)</th>
-                                <td>@Html.DisplayFor(modelItem => item.ClienteAsignado)</td>
-                                <td>@Html.DisplayFor(modelItem => item.Fecha)</td>
-                                <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
-                                <td class="td-btn">
-                                    <button type="button" class="btn">
-                                        <span class="fas fa-trash"></span>
-                                    </button>
-                                </td>
-                            </tr>
+                            {
+                        <tr>
+                            <td class="td-btn">
+                                <button type="button"
+                                        class="btn">
+                                    <span class="fas fa-edit"></span>
+                                </button>
+                            </td>
+                            <th scope="row">@item.CitasID</th>
+                            <td>@item.CitasID</td>
+                            <td>@item.Fecha</td>
+                            <td>@item.Descripcion</td>
+                            <td class="td-btn">
+                                <button type="button" class="btn">
+                                    <span class="fas fa-trash"></span>
+                                </button>
+                            </td>
+                        </tr>
                         }
-                        <tr>
-                            <td class="td-btn">
-                                <button type="button"
-                                        class="btn">
-                                    <span class="fas fa-edit"></span>
-                                </button>
-                            </td>
-                            <th scope="row">269</th>
-                            <td>Felipe Chacón</td>
-                            <td>9/8/2020</td>
-                            <td> Extracción </td>
-                            <td class="td-btn">
-                                <button type="button" class="btn">
-                                    <span class="fas fa-trash"></span>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="td-btn">
-                                <button type="button"
-                                        class="btn">
-                                    <span class="fas fa-edit"></span>
-                                </button>
-                            </td>
-                            <th scope="row">887</th>
-                            <td>Kevin Artavia Varela</td>
-                            <td>5/4/2020</td>
-                            <td>Blanqueamiento</td>
-                            <td class="td-btn">
-                                <button type="button" class="btn">
-                                    <span class="fas fa-trash"></span>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="td-btn">
-                                <button type="button"
-                                        class="btn">
-                                    <span class="fas fa-edit"></span>
-                                </button>
-                            </td>
-                            <th scope="row">496</th>
-                            <td>Mariana Urcuyo Zúñiga</td>
-                            <td>6/12/2020</td>
-                            <td>Radiología</td>
-                            <td class="td-btn">
-                                <button type="button" class="btn">
-                                    <span class="fas fa-trash"></span>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="td-btn">
-                                <button type="button"
-                                        class="btn">
-                                    <span class="fas fa-edit"></span>
-                                </button>
-                            </td>
-                            <th scope="row">785</th>
-                            <td>Sebastián Ríos</td>
-                            <td>6/7/2020</td>
-                            <td>Colocación frenillos</td>
-                            <td class="td-btn">
-                                <button type="button" class="btn">
-                                    <span class="fas fa-trash"></span>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="td-btn">
-                                <button type="button"
-                                        class="btn">
-                                    <span class="fas fa-edit"></span>
-                                </button>
-                            </td>
-                            <th scope="row">785</th>
-                            <td>Steven Artavia Varela</td>
-                            <td>8/3/2020</td>
-                            <td>Carillas</td>
-                            <td class="td-btn">
-                                <button type="button" class="btn">
-                                    <span class="fas fa-trash"></span>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="td-btn">
-                                <button type="button"
-                                        class="btn">
-                                    <span class="fas fa-edit"></span>
-                                </button>
-                            </td>
-                            <th scope="row">712</th>
-                            <td>Andrés Montero</td>
-                            <td>28/4/2020</td>
-                            <td>Extracción</td>
-                            <td class="td-btn">
-                                <button type="button" class="btn">
-                                    <span class="fas fa-trash"></span>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="td-btn">
-                                <button type="button"
-                                        class="btn">
-                                    <span class="fas fa-edit"></span>
-                                </button>
-                            </td>
-                            <th scope="row">348</th>
-                            <td>Andrés Pereira</td>
-                            <td>1/2/2020</td>
-                            <td>Revisión general</td>
-                            <td class="td-btn">
-                                <button type="button" class="btn">
-                                    <span class="fas fa-trash"></span>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="td-btn">
-                                <button type="button"
-                                        class="btn">
-                                    <span class="fas fa-edit"></span>
-                                </button>
-                            </td>
-                            <th scope="row">569</th>
-                            <td>Fabián Tenorio Mora</td>
-                            <td>5/5/2020</td>
-                            <td>Extracción de cordales</td>
-                            <td class="td-btn">
-                                <button type="button" class="btn">
-                                    <span class="fas fa-trash"></span>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="td-btn">
-                                <button type="button"
-                                        class="btn">
-                                    <span class="fas fa-edit"></span>
-                                </button>
-                            </td>
-                            <th scope="row">997</th>
-                            <td>Katherine Martínez</td>
-                            <td>22/4/2020</td>
-                            <td>Resinas</td>
-                            <td class="td-btn">
-                                <button type="button" class="btn">
-                                    <span class="fas fa-trash"></span>
-                                </button>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>

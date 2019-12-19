@@ -15,32 +15,6 @@ namespace CitasBambuDC.Controllers
             return View("~/Views/Citas/SignIn_Up.cshtml");
         }
 
-        //public ActionResult LogIn()
-        //{
-        //    if (Session["UserType"] != null)
-        //    {
-        //        return RedirectToAction("");
-        //    }
-        //    return View();
-        //}
-
-        //public ActionResult AdminLogIn()
-        //{
-        //    if (Session["UserType"] != null)
-        //    {
-        //        return RedirectToAction("");
-        //    }
-        //    return View();
-        //}
-
-        //public ActionResult LogOut()
-        //{
-        //    if (Session["UserType"] != null)
-        //    {
-        //        Session["UserType"] = null;
-        //    }
-        //    return RedirectToAction("");
-        //}
 
         [HttpPost]
         public ActionResult Register(string nombre, string segundoNombre, string primerApellido,
@@ -72,7 +46,7 @@ namespace CitasBambuDC.Controllers
                 }
                 else if (Session["UserType"].Equals(false))
                 {
-                    return RedirectToAction("ListAppointmentsCitas", "Citas");
+                    return RedirectToAction("Appointment", "Citas");
       
                 }
                 else
