@@ -1,13 +1,13 @@
 ﻿
-@{
-    ViewBag.Title = "ListAppointmentsClient";
-}
+@model IEnumerable<CitasBambuDC.Models.Cita>
 
+@if (Session["UserType"] != null && Session["UserType"].Equals(false))
+{
+       
 <link rel="stylesheet" type="text/css" href="~/Content/list_appointment.css" />
 <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 <body>
     <a href="" class="float">
         <img alt="volver a lista de pacientes" src="~/Imgs/logout.png" class="my-float" />
@@ -38,58 +38,36 @@
                         <th scope="col" width="120px">Eliminar cita</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td class="td-btn">
-                            <button type="button"
-                                    class="btn">
-                                <span class="fas fa-edit"></span>
-                            </button>
-                        </td>
-                        <th scope="row">125</th>
-                        <td>27/1/2020</td>
-                        <td>Cita de control</td>
-                        <td class="td-btn">
-                            <button type="button" class="btn">
-                                <span class="fas fa-trash"></span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="td-btn">
-                            <button type="button"
-                                    class="btn">
-                                <span class="fas fa-edit"></span>
-                            </button>
-                        </td>
-                        <th scope="row">485</th>
-                        <td>4/9/2020</td>
-                        <td>Cita de control</td>
-                        <td class="td-btn">
-                            <button type="button" class="btn">
-                                <span class="fas fa-trash"></span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="td-btn">
-                            <button type="button"
-                                    class="btn">
-                                <span class="fas fa-edit"></span>
-                            </button>
-                        </td>
-                        <th scope="row">125</th>
-                        <td>9/3/2020</td>
-                        <td>Cita de control</td>
-                        <td class="td-btn">
-                            <button type="button" class="btn">
-                                <span class="fas fa-trash"></span>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</body>
-
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        if (item.ClienteAsignado.ToString().Equals(Session["PersonaID"]))
+                                        {
+                                            <tr>
+                                                <td class="td-btn">
+                                                    <button type="button"
+                                                            class="btn">
+                                                        <span class="fas fa-edit"></span>
+                                                    </button>
+                                                </td>
+                                                <th scope="row">@item.CitasID</th>
+                                                <td>@item.Fecha</td>
+                                                <td>@item.Descripcion</td>
+                                                <td class="td-btn">
+                                                    <button type="button" class="btn">
+                                                        <span class="fas fa-trash"></span>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                    </div>
+                </div>
+            </body>  
+}
+@if (Session["UserType"] == null | (Session["UserType"] != null && Session["UserType"].Equals(true)))
+{
+    Response.Redirect("https://localhost:44308/");
+}

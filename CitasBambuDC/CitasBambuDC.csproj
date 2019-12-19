@@ -142,9 +142,6 @@
     <Content Include="Connected Services\BambuWS\CitasBambuDC.BambuWS.CitasDeClienteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\BambuWS\CitasBambuDC.BambuWS.CrearCitaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\BambuWS\CitasBambuDC.BambuWS.CrearUsuarioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -158,6 +155,12 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\BambuWS\CitasBambuDC.BambuWS.SerializablePersona.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BambuWS\CitasBambuDC.BambuWS.ReservarCitaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BambuWS\CitasBambuDC.BambuWS.ListaDeCitasResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\BambuWS\WSDB.disco" />
