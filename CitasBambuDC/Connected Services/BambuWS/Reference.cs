@@ -15,6 +15,176 @@ namespace CitasBambuDC.BambuWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SerializablePersona", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class SerializablePersona : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int PersonaIDField;
+        
+        private int CedulaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PrimerNombreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SegundoNombreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PrimerApellidoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SegundoApellidoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TelefonoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CorreoField;
+        
+        private bool EsAdminField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int PersonaID {
+            get {
+                return this.PersonaIDField;
+            }
+            set {
+                if ((this.PersonaIDField.Equals(value) != true)) {
+                    this.PersonaIDField = value;
+                    this.RaisePropertyChanged("PersonaID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public int Cedula {
+            get {
+                return this.CedulaField;
+            }
+            set {
+                if ((this.CedulaField.Equals(value) != true)) {
+                    this.CedulaField = value;
+                    this.RaisePropertyChanged("Cedula");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string PrimerNombre {
+            get {
+                return this.PrimerNombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PrimerNombreField, value) != true)) {
+                    this.PrimerNombreField = value;
+                    this.RaisePropertyChanged("PrimerNombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string SegundoNombre {
+            get {
+                return this.SegundoNombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SegundoNombreField, value) != true)) {
+                    this.SegundoNombreField = value;
+                    this.RaisePropertyChanged("SegundoNombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string PrimerApellido {
+            get {
+                return this.PrimerApellidoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PrimerApellidoField, value) != true)) {
+                    this.PrimerApellidoField = value;
+                    this.RaisePropertyChanged("PrimerApellido");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string SegundoApellido {
+            get {
+                return this.SegundoApellidoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SegundoApellidoField, value) != true)) {
+                    this.SegundoApellidoField = value;
+                    this.RaisePropertyChanged("SegundoApellido");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public string Telefono {
+            get {
+                return this.TelefonoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TelefonoField, value) != true)) {
+                    this.TelefonoField = value;
+                    this.RaisePropertyChanged("Telefono");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        public string Correo {
+            get {
+                return this.CorreoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CorreoField, value) != true)) {
+                    this.CorreoField = value;
+                    this.RaisePropertyChanged("Correo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
+        public bool EsAdmin {
+            get {
+                return this.EsAdminField;
+            }
+            set {
+                if ((this.EsAdminField.Equals(value) != true)) {
+                    this.EsAdminField = value;
+                    this.RaisePropertyChanged("EsAdmin");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SerializableCita", Namespace="http://tempuri.org/")]
     [System.SerializableAttribute()]
     public partial class SerializableCita : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -103,161 +273,6 @@ namespace CitasBambuDC.BambuWS {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SerializablePersona", Namespace="http://tempuri.org/")]
-    [System.SerializableAttribute()]
-    public partial class SerializablePersona : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private int PersonaIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PrimerNombreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SegundoNombreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PrimerApellidoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SegundoApellidoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TelefonoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CorreoField;
-        
-        private bool EsAdminField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int PersonaID {
-            get {
-                return this.PersonaIDField;
-            }
-            set {
-                if ((this.PersonaIDField.Equals(value) != true)) {
-                    this.PersonaIDField = value;
-                    this.RaisePropertyChanged("PersonaID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string PrimerNombre {
-            get {
-                return this.PrimerNombreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PrimerNombreField, value) != true)) {
-                    this.PrimerNombreField = value;
-                    this.RaisePropertyChanged("PrimerNombre");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string SegundoNombre {
-            get {
-                return this.SegundoNombreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SegundoNombreField, value) != true)) {
-                    this.SegundoNombreField = value;
-                    this.RaisePropertyChanged("SegundoNombre");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public string PrimerApellido {
-            get {
-                return this.PrimerApellidoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PrimerApellidoField, value) != true)) {
-                    this.PrimerApellidoField = value;
-                    this.RaisePropertyChanged("PrimerApellido");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
-        public string SegundoApellido {
-            get {
-                return this.SegundoApellidoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SegundoApellidoField, value) != true)) {
-                    this.SegundoApellidoField = value;
-                    this.RaisePropertyChanged("SegundoApellido");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
-        public string Telefono {
-            get {
-                return this.TelefonoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TelefonoField, value) != true)) {
-                    this.TelefonoField = value;
-                    this.RaisePropertyChanged("Telefono");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
-        public string Correo {
-            get {
-                return this.CorreoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CorreoField, value) != true)) {
-                    this.CorreoField = value;
-                    this.RaisePropertyChanged("Correo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
-        public bool EsAdmin {
-            get {
-                return this.EsAdminField;
-            }
-            set {
-                if ((this.EsAdminField.Equals(value) != true)) {
-                    this.EsAdminField = value;
-                    this.RaisePropertyChanged("EsAdmin");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BambuWS.WSDBSoap")]
     public interface WSDBSoap {
@@ -276,12 +291,11 @@ namespace CitasBambuDC.BambuWS {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/LogIn", ReplyAction="*")]
         System.Threading.Tasks.Task<CitasBambuDC.BambuWS.LogInResponse> LogInAsync(CitasBambuDC.BambuWS.LogInRequest request);
         
-        // CODEGEN: Generating message contract since element name descripcion from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CrearCita", ReplyAction="*")]
-        CitasBambuDC.BambuWS.CrearCitaResponse CrearCita(CitasBambuDC.BambuWS.CrearCitaRequest request);
+        bool CrearCita(System.DateTime fecha);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CrearCita", ReplyAction="*")]
-        System.Threading.Tasks.Task<CitasBambuDC.BambuWS.CrearCitaResponse> CrearCitaAsync(CitasBambuDC.BambuWS.CrearCitaRequest request);
+        System.Threading.Tasks.Task<bool> CrearCitaAsync(System.DateTime fecha);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/BorrarCita", ReplyAction="*")]
         bool BorrarCita(int idCita);
@@ -289,11 +303,12 @@ namespace CitasBambuDC.BambuWS {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/BorrarCita", ReplyAction="*")]
         System.Threading.Tasks.Task<bool> BorrarCitaAsync(int idCita);
         
+        // CODEGEN: Generating message contract since element name descripcion from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ReservarCita", ReplyAction="*")]
-        bool ReservarCita(int cedulaCliente, int idCita);
+        CitasBambuDC.BambuWS.ReservarCitaResponse ReservarCita(CitasBambuDC.BambuWS.ReservarCitaRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ReservarCita", ReplyAction="*")]
-        System.Threading.Tasks.Task<bool> ReservarCitaAsync(int cedulaCliente, int idCita);
+        System.Threading.Tasks.Task<CitasBambuDC.BambuWS.ReservarCitaResponse> ReservarCitaAsync(CitasBambuDC.BambuWS.ReservarCitaRequest request);
         
         // CODEGEN: Generating message contract since element name CitasDeClienteResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CitasDeCliente", ReplyAction="*")]
@@ -301,6 +316,13 @@ namespace CitasBambuDC.BambuWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CitasDeCliente", ReplyAction="*")]
         System.Threading.Tasks.Task<CitasBambuDC.BambuWS.CitasDeClienteResponse> CitasDeClienteAsync(CitasBambuDC.BambuWS.CitasDeClienteRequest request);
+        
+        // CODEGEN: Generating message contract since element name ListaDeCitasResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ListaDeCitas", ReplyAction="*")]
+        CitasBambuDC.BambuWS.ListaDeCitasResponse ListaDeCitas(CitasBambuDC.BambuWS.ListaDeCitasRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ListaDeCitas", ReplyAction="*")]
+        System.Threading.Tasks.Task<CitasBambuDC.BambuWS.ListaDeCitasResponse> ListaDeCitasAsync(CitasBambuDC.BambuWS.ListaDeCitasRequest request);
         
         // CODEGEN: Generating message contract since element name InfoPersonaResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InfoPersona", ReplyAction="*")]
@@ -467,13 +489,13 @@ namespace CitasBambuDC.BambuWS {
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
     public partial class LogInResponseBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool LogInResult;
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public CitasBambuDC.BambuWS.SerializablePersona LogInResult;
         
         public LogInResponseBody() {
         }
         
-        public LogInResponseBody(bool LogInResult) {
+        public LogInResponseBody(CitasBambuDC.BambuWS.SerializablePersona LogInResult) {
             this.LogInResult = LogInResult;
         }
     }
@@ -482,15 +504,15 @@ namespace CitasBambuDC.BambuWS {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class CrearCitaRequest {
+    public partial class ReservarCitaRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="CrearCita", Namespace="http://tempuri.org/", Order=0)]
-        public CitasBambuDC.BambuWS.CrearCitaRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="ReservarCita", Namespace="http://tempuri.org/", Order=0)]
+        public CitasBambuDC.BambuWS.ReservarCitaRequestBody Body;
         
-        public CrearCitaRequest() {
+        public ReservarCitaRequest() {
         }
         
-        public CrearCitaRequest(CitasBambuDC.BambuWS.CrearCitaRequestBody Body) {
+        public ReservarCitaRequest(CitasBambuDC.BambuWS.ReservarCitaRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -499,19 +521,23 @@ namespace CitasBambuDC.BambuWS {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class CrearCitaRequestBody {
+    public partial class ReservarCitaRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public System.Nullable<System.DateTime> fecha;
+        public int cedulaCliente;
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int idCita;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
         public string descripcion;
         
-        public CrearCitaRequestBody() {
+        public ReservarCitaRequestBody() {
         }
         
-        public CrearCitaRequestBody(System.Nullable<System.DateTime> fecha, string descripcion) {
-            this.fecha = fecha;
+        public ReservarCitaRequestBody(int cedulaCliente, int idCita, string descripcion) {
+            this.cedulaCliente = cedulaCliente;
+            this.idCita = idCita;
             this.descripcion = descripcion;
         }
     }
@@ -520,15 +546,15 @@ namespace CitasBambuDC.BambuWS {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class CrearCitaResponse {
+    public partial class ReservarCitaResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="CrearCitaResponse", Namespace="http://tempuri.org/", Order=0)]
-        public CitasBambuDC.BambuWS.CrearCitaResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="ReservarCitaResponse", Namespace="http://tempuri.org/", Order=0)]
+        public CitasBambuDC.BambuWS.ReservarCitaResponseBody Body;
         
-        public CrearCitaResponse() {
+        public ReservarCitaResponse() {
         }
         
-        public CrearCitaResponse(CitasBambuDC.BambuWS.CrearCitaResponseBody Body) {
+        public ReservarCitaResponse(CitasBambuDC.BambuWS.ReservarCitaResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -537,16 +563,16 @@ namespace CitasBambuDC.BambuWS {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class CrearCitaResponseBody {
+    public partial class ReservarCitaResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool CrearCitaResult;
+        public bool ReservarCitaResult;
         
-        public CrearCitaResponseBody() {
+        public ReservarCitaResponseBody() {
         }
         
-        public CrearCitaResponseBody(bool CrearCitaResult) {
-            this.CrearCitaResult = CrearCitaResult;
+        public ReservarCitaResponseBody(bool ReservarCitaResult) {
+            this.ReservarCitaResult = ReservarCitaResult;
         }
     }
     
@@ -615,6 +641,67 @@ namespace CitasBambuDC.BambuWS {
         
         public CitasDeClienteResponseBody(CitasBambuDC.BambuWS.SerializableCita[] CitasDeClienteResult) {
             this.CitasDeClienteResult = CitasDeClienteResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class ListaDeCitasRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="ListaDeCitas", Namespace="http://tempuri.org/", Order=0)]
+        public CitasBambuDC.BambuWS.ListaDeCitasRequestBody Body;
+        
+        public ListaDeCitasRequest() {
+        }
+        
+        public ListaDeCitasRequest(CitasBambuDC.BambuWS.ListaDeCitasRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class ListaDeCitasRequestBody {
+        
+        public ListaDeCitasRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class ListaDeCitasResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="ListaDeCitasResponse", Namespace="http://tempuri.org/", Order=0)]
+        public CitasBambuDC.BambuWS.ListaDeCitasResponseBody Body;
+        
+        public ListaDeCitasResponse() {
+        }
+        
+        public ListaDeCitasResponse(CitasBambuDC.BambuWS.ListaDeCitasResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class ListaDeCitasResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public CitasBambuDC.BambuWS.SerializableCita[] ListaDeCitasResult;
+        
+        public ListaDeCitasResponseBody() {
+        }
+        
+        public ListaDeCitasResponseBody(CitasBambuDC.BambuWS.SerializableCita[] ListaDeCitasResult) {
+            this.ListaDeCitasResult = ListaDeCitasResult;
         }
     }
     
@@ -757,7 +844,7 @@ namespace CitasBambuDC.BambuWS {
             return base.Channel.LogIn(request);
         }
         
-        public bool LogIn(string correo, string pass) {
+        public CitasBambuDC.BambuWS.SerializablePersona LogIn(string correo, string pass) {
             CitasBambuDC.BambuWS.LogInRequest inValue = new CitasBambuDC.BambuWS.LogInRequest();
             inValue.Body = new CitasBambuDC.BambuWS.LogInRequestBody();
             inValue.Body.correo = correo;
@@ -779,31 +866,12 @@ namespace CitasBambuDC.BambuWS {
             return ((CitasBambuDC.BambuWS.WSDBSoap)(this)).LogInAsync(inValue);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        CitasBambuDC.BambuWS.CrearCitaResponse CitasBambuDC.BambuWS.WSDBSoap.CrearCita(CitasBambuDC.BambuWS.CrearCitaRequest request) {
-            return base.Channel.CrearCita(request);
+        public bool CrearCita(System.DateTime fecha) {
+            return base.Channel.CrearCita(fecha);
         }
         
-        public bool CrearCita(System.Nullable<System.DateTime> fecha, string descripcion) {
-            CitasBambuDC.BambuWS.CrearCitaRequest inValue = new CitasBambuDC.BambuWS.CrearCitaRequest();
-            inValue.Body = new CitasBambuDC.BambuWS.CrearCitaRequestBody();
-            inValue.Body.fecha = fecha;
-            inValue.Body.descripcion = descripcion;
-            CitasBambuDC.BambuWS.CrearCitaResponse retVal = ((CitasBambuDC.BambuWS.WSDBSoap)(this)).CrearCita(inValue);
-            return retVal.Body.CrearCitaResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<CitasBambuDC.BambuWS.CrearCitaResponse> CitasBambuDC.BambuWS.WSDBSoap.CrearCitaAsync(CitasBambuDC.BambuWS.CrearCitaRequest request) {
-            return base.Channel.CrearCitaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<CitasBambuDC.BambuWS.CrearCitaResponse> CrearCitaAsync(System.Nullable<System.DateTime> fecha, string descripcion) {
-            CitasBambuDC.BambuWS.CrearCitaRequest inValue = new CitasBambuDC.BambuWS.CrearCitaRequest();
-            inValue.Body = new CitasBambuDC.BambuWS.CrearCitaRequestBody();
-            inValue.Body.fecha = fecha;
-            inValue.Body.descripcion = descripcion;
-            return ((CitasBambuDC.BambuWS.WSDBSoap)(this)).CrearCitaAsync(inValue);
+        public System.Threading.Tasks.Task<bool> CrearCitaAsync(System.DateTime fecha) {
+            return base.Channel.CrearCitaAsync(fecha);
         }
         
         public bool BorrarCita(int idCita) {
@@ -814,12 +882,33 @@ namespace CitasBambuDC.BambuWS {
             return base.Channel.BorrarCitaAsync(idCita);
         }
         
-        public bool ReservarCita(int cedulaCliente, int idCita) {
-            return base.Channel.ReservarCita(cedulaCliente, idCita);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        CitasBambuDC.BambuWS.ReservarCitaResponse CitasBambuDC.BambuWS.WSDBSoap.ReservarCita(CitasBambuDC.BambuWS.ReservarCitaRequest request) {
+            return base.Channel.ReservarCita(request);
         }
         
-        public System.Threading.Tasks.Task<bool> ReservarCitaAsync(int cedulaCliente, int idCita) {
-            return base.Channel.ReservarCitaAsync(cedulaCliente, idCita);
+        public bool ReservarCita(int cedulaCliente, int idCita, string descripcion) {
+            CitasBambuDC.BambuWS.ReservarCitaRequest inValue = new CitasBambuDC.BambuWS.ReservarCitaRequest();
+            inValue.Body = new CitasBambuDC.BambuWS.ReservarCitaRequestBody();
+            inValue.Body.cedulaCliente = cedulaCliente;
+            inValue.Body.idCita = idCita;
+            inValue.Body.descripcion = descripcion;
+            CitasBambuDC.BambuWS.ReservarCitaResponse retVal = ((CitasBambuDC.BambuWS.WSDBSoap)(this)).ReservarCita(inValue);
+            return retVal.Body.ReservarCitaResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<CitasBambuDC.BambuWS.ReservarCitaResponse> CitasBambuDC.BambuWS.WSDBSoap.ReservarCitaAsync(CitasBambuDC.BambuWS.ReservarCitaRequest request) {
+            return base.Channel.ReservarCitaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<CitasBambuDC.BambuWS.ReservarCitaResponse> ReservarCitaAsync(int cedulaCliente, int idCita, string descripcion) {
+            CitasBambuDC.BambuWS.ReservarCitaRequest inValue = new CitasBambuDC.BambuWS.ReservarCitaRequest();
+            inValue.Body = new CitasBambuDC.BambuWS.ReservarCitaRequestBody();
+            inValue.Body.cedulaCliente = cedulaCliente;
+            inValue.Body.idCita = idCita;
+            inValue.Body.descripcion = descripcion;
+            return ((CitasBambuDC.BambuWS.WSDBSoap)(this)).ReservarCitaAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -845,6 +934,29 @@ namespace CitasBambuDC.BambuWS {
             inValue.Body = new CitasBambuDC.BambuWS.CitasDeClienteRequestBody();
             inValue.Body.cedula = cedula;
             return ((CitasBambuDC.BambuWS.WSDBSoap)(this)).CitasDeClienteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        CitasBambuDC.BambuWS.ListaDeCitasResponse CitasBambuDC.BambuWS.WSDBSoap.ListaDeCitas(CitasBambuDC.BambuWS.ListaDeCitasRequest request) {
+            return base.Channel.ListaDeCitas(request);
+        }
+        
+        public CitasBambuDC.BambuWS.SerializableCita[] ListaDeCitas() {
+            CitasBambuDC.BambuWS.ListaDeCitasRequest inValue = new CitasBambuDC.BambuWS.ListaDeCitasRequest();
+            inValue.Body = new CitasBambuDC.BambuWS.ListaDeCitasRequestBody();
+            CitasBambuDC.BambuWS.ListaDeCitasResponse retVal = ((CitasBambuDC.BambuWS.WSDBSoap)(this)).ListaDeCitas(inValue);
+            return retVal.Body.ListaDeCitasResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<CitasBambuDC.BambuWS.ListaDeCitasResponse> CitasBambuDC.BambuWS.WSDBSoap.ListaDeCitasAsync(CitasBambuDC.BambuWS.ListaDeCitasRequest request) {
+            return base.Channel.ListaDeCitasAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<CitasBambuDC.BambuWS.ListaDeCitasResponse> ListaDeCitasAsync() {
+            CitasBambuDC.BambuWS.ListaDeCitasRequest inValue = new CitasBambuDC.BambuWS.ListaDeCitasRequest();
+            inValue.Body = new CitasBambuDC.BambuWS.ListaDeCitasRequestBody();
+            return ((CitasBambuDC.BambuWS.WSDBSoap)(this)).ListaDeCitasAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
