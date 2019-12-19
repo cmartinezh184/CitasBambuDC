@@ -181,7 +181,10 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Imgs\back.png" />
+    <Content Include="Imgs\calendar.png" />
     <Content Include="Imgs\logobambu.png" />
+    <Content Include="Imgs\logout.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -331,6 +334,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Citas\EditAppointment.cshtml" />
     <Content Include="Views\Citas\ListAppointmentsClient.cshtml" />
+    <Content Include="Views\Citas\AddAppointmentAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

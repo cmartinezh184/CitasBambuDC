@@ -6,11 +6,14 @@
 
     <div class="container" id="container">
         <div class="form-container appointment-container">
+            <button id="backToList" type="button" class="btn-backTo" style="width:1px">
+                <img alt="volver a lista de pacientes" src="~/Imgs/back.png" />
+            </button>
             <form action="#">
                 <h2>Agendar Cita</h2>
-                <input id="nombreCompletoCita" placeholder="Su nombre completo aquí"/>
+                <input id="nombreCompletoCita" placeholder="Su nombre completo aquí" />
                 <input id="cedulaPersonaCita" placeholder="Ingrese su cédula aquí" />
-                <input id="correoCita" placeholder="Correo al que desea ser notificado"/>
+                <input id="correoCita" placeholder="Correo al que desea ser notificado" />
                 <select id="fechasDisponiblesCita">
                     <option disabled selected style="visibility: hidden">Fechas disponibles para las citas</option>
                     <option> 24/12/2019</option>
@@ -22,7 +25,6 @@
                     <option> Revisión </option>
                     <option> Extracción </option>
                 </select>
-                <br />
                 <br />
                 <button> Reservar </button>
             </form>
