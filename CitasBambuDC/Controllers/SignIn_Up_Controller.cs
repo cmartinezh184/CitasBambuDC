@@ -52,14 +52,14 @@ namespace CitasBambuDC.Controllers
                 Session.Timeout = 10;
                 Session["UserType"] = persona.EsAdmin;
                 Session["PersonaID"] = persona.PersonaID.ToString();
-                Session["Cedula"] = persona.PersonaID.ToString();
+                Session["Cedula"] = persona.Cedula.ToString();
                 if (Session["UserType"].Equals(true))
                 {
                     return RedirectToAction("ListAppointments", "Citas");
                 }
                 else if (Session["UserType"].Equals(false))
                 {
-                    return RedirectToAction("Appointment", "Citas");
+                    return RedirectToAction("ListAppointmentsCitas", "Citas");
       
                 }
                 else

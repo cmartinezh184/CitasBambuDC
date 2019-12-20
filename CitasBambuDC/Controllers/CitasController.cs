@@ -49,6 +49,7 @@ namespace CitasBambuDC.Controllers
                 Cita cita = new Cita();
                 cita.CitasID = datos.CitasID;
                 cita.ClienteAsignado = datos.ClienteAsignado;
+                cita.NombrePaciente = datos.NombrePaciente;
                 cita.Fecha = datos.Fecha;
                 cita.Descripcion = datos.Descripcion;
                 listaCitas.Add(cita);
@@ -89,7 +90,7 @@ namespace CitasBambuDC.Controllers
                 cita.Descripcion = datos.Descripcion;
                 listaCitas.Add(cita);
             }
-            return View("~/Views/Citas/ListAppointmentsClient.cshtml", listaCitas);
+            return View("~/Views/Citas/ListAppointmentsCitas.cshtml", listaCitas);
         }
 
         /// <summary>
@@ -142,6 +143,20 @@ namespace CitasBambuDC.Controllers
         [HttpPost]
         public ActionResult CrearAppointment(string cedula, DateTime fecha, string descripcion)
         {
+            bool IsPostBack = false;
+            if (!IsPostBack)
+            {
+                Response.Cache.SetCacheability(HttpCacheability.ServerAndNoCache);
+                Response.Cache.SetAllowResponseInBrowserHistory(false);
+                Response.Cache.SetNoStore();
+            }
+            if (Convert.ToString(Session["login"]) != "YES")
+            {
+                Session.Abandon();
+                FormsAuthentication.SignOut();
+                return View("~/Views/Citas/SignIn_Up.cshtml");
+            }
+            Session["StartTime"] = System.DateTime.Now.ToString("yyyyMMdd HH:mm:ss");
             BambuWS.WSDBSoapClient WS = new BambuWS.WSDBSoapClient();
             var citas = WS.ListaDeCitas();
             int cedulaint = Convert.ToInt32(cedula);
@@ -178,11 +193,29 @@ namespace CitasBambuDC.Controllers
         }
 
         [HttpPost]
-        public ActionResult CrearNuevaCita(string year, string mes, string dia, string hora)// estas variables vienen de la Vista
+        public ActionResult CrearNuevaCita(DateTime date)// estas variables vienen de la Vista
         {
+            bool IsPostBack = false;
+            if (!IsPostBack)
+            {
+                Response.Cache.SetCacheability(HttpCacheability.ServerAndNoCache);
+                Response.Cache.SetAllowResponseInBrowserHistory(false);
+                Response.Cache.SetNoStore();
+            }
+            if (Convert.ToString(Session["login"]) != "YES")
+            {
+                Session.Abandon();
+                FormsAuthentication.SignOut();
+                return View("~/Views/Citas/SignIn_Up.cshtml");
+            }
+            Session["StartTime"] = System.DateTime.Now.ToString("yyyyMMdd HH:mm:ss");
             BambuWS.WSDBSoapClient WS = new BambuWS.WSDBSoapClient();
-            string fechaCompleta = year + "/" + mes + "/" +dia+" "+hora;
-            DateTime fecha =  DateTime.Parse(fechaCompleta);
+            WS.CrearCita(date);
+            return RedirectToAction("ListAppointments", "Citas");
+        }
+
+        public ActionResult AddAppointmentAdmin()
+        {
             return View();
         }
 
@@ -191,12 +224,25 @@ namespace CitasBambuDC.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult BorrarCita(string id)//el id extraido de la vista para borrar la Cita
+        public ActionResult BorrarCita(string idCita)//el id extraido de la vista para borrar la Cita
         {
             BambuWS.WSDBSoapClient WS = new BambuWS.WSDBSoapClient();
-            int idInt = Convert.ToInt32(id);
+            int idInt = Convert.ToInt32(idCita);
             WS.BorrarCita(idInt);
-            return View();
-        }       
+            return RedirectToAction("ListAppointments", "Citas");
+        }
+
+        /// <summary>
+        /// Pagina de borrado de citas
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult LiberarCita(string idCita)//el id extraido de la vista para borrar la Cita
+        {
+            BambuWS.WSDBSoapClient WS = new BambuWS.WSDBSoapClient();
+            int idInt = Convert.ToInt32(idCita);
+            WS.LiberarCita(idInt);
+            return RedirectToAction("ListAppointmentsCitas", "Citas");
+        }
     }
 }

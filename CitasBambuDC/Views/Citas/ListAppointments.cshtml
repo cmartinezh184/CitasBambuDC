@@ -8,43 +8,61 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
           integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <body>
-        <a href="" class="float">
-            <img alt="volver a lista de pacientes" src="~/Imgs/logout.png" class="my-float"/>
+        <a href="https://localhost:44308/" class="float">
+            <img alt="volver a lista de pacientes" src="~/Imgs/logout.png" class="my-float" />
         </a>
+        <div class="label-container">
+            <div class="label-text">Cerrar Sesión</div>
+        </div>
         <div class="row" style="width: 1400px">
             <div class="col-xl-12 table-wrapper-scroll-y custom-scrollbar">
                 <table class="table table-hover">
                     <thead class="thead-inverse">
                         <tr>
-                            <th scope="col" width="120px">Editar cita</th>
+                            <th width="170px" style="text-align:left; padding-bottom: 20px">
+                                Habilitar Cita
+                                <button id="backToList" type="button" class="btn-schedule">
+                                    <a href="https://localhost:44308/Citas/AddAppointmentAdmin">
+                                        <img alt="Habilitar una cita" src="~/Imgs/calendar.png" />
+                                    </a>
+                                </button>
+
+                            </th>
+                            <th colspan="3" style="text-align: center; font-size: 25px; padding: 20px">
+                                Citas programadas
+                            </th>
+                            <th>
+                                @using (Html.BeginForm("BorrarCita", "Citas", FormMethod.Post))
+                                {
+                                <form>
+                                    <input name="idCita" placeholder="N° Cita" />
+                                    <button type="submit" class="btn-schedule">
+                                        <span class="fas fa-trash"></span>
+                                    </button>
+                                </form>
+                                }
+                            </th>
+                        </tr>
+                        <tr>
                             <th scope="col">Cita</th>
-                            <th scope="col">Paciente</th>
+                            <th scope="col">Cedula Paciente</th>
+                            <th scope="col">Nombre Paciente</th>
                             <th scope="col">Fecha</th>
                             <th scope="col">Descripción</th>
-                            <th scope="col" width="120px">Eliminar cita</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
-                            {
-                        <tr>
-                            <td class="td-btn">
-                                <button type="button"
-                                        class="btn">
-                                    <span class="fas fa-edit"></span>
-                                </button>
-                            </td>
-                            <th scope="row">@item.CitasID</th>
-                            <td>@item.CitasID</td>
-                            <td>@item.Fecha</td>
-                            <td>@item.Descripcion</td>
-                            <td class="td-btn">
-                                <button type="button" class="btn">
-                                    <span class="fas fa-trash"></span>
-                                </button>
-                            </td>
-                        </tr>
-                        }
+                        {
+                            <tr>
+                                <th scope="row">@item.CitasID</th>
+                                <td>@item.ClienteAsignado</td>
+                                <td>@item.NombrePaciente</td>
+                                <td>@item.Fecha</td>
+                                <td>@item.Descripcion</td>
+                                    
+                            </tr>
+                            }
                     </tbody>
                 </table>
             </div>

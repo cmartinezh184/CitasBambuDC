@@ -11,5 +11,7 @@ namespace CitasBambuDC.Models
         public Nullable<System.DateTime> Fecha { get; set; }
         public Nullable<int> ClienteAsignado { get; set; }
         public string Descripcion { get; set; }
+        public string NombrePaciente { get; set; }
+
     }
 }

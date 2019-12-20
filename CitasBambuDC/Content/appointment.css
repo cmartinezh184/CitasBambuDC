@@ -148,6 +148,8 @@ button {
     }
 
 .btn-backTo {
+    top: 10px;
+    left: 10px;
     background: none;
     border: none;
     width: 5px;
