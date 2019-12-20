@@ -8,17 +8,18 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
           integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <body>
-        <a href="" class="float">
-            <img alt="volver a lista de pacientes" src="~/Imgs/logout.png" class="my-float"/>
+        <a href="https://localhost:44308/" class="float">
+            <img alt="volver a lista de pacientes" src="~/Imgs/logout.png" class="my-float" />
         </a>
+
         <div class="row" style="width: 1400px">
             <div class="col-xl-12 table-wrapper-scroll-y custom-scrollbar">
                 <table class="table table-hover">
                     <thead class="thead-inverse">
                         <tr>
-                            <th scope="col" width="120px">Editar cita</th>
                             <th scope="col">Cita</th>
-                            <th scope="col">Paciente</th>
+                            <th scope="col">Cedula Paciente</th>
+                            <th scope="col">Nombre Paciente</th>
                             <th scope="col">Fecha</th>
                             <th scope="col">Descripción</th>
                             <th scope="col" width="120px">Eliminar cita</th>
@@ -26,16 +27,11 @@
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
-                            {
+                        {
                         <tr>
-                            <td class="td-btn">
-                                <button type="button"
-                                        class="btn">
-                                    <span class="fas fa-edit"></span>
-                                </button>
-                            </td>
                             <th scope="row">@item.CitasID</th>
-                            <td>@item.CitasID</td>
+                            <td>@item.ClienteAsignado</td>
+                            <td>@item.NombrePaciente</td>
                             <td>@item.Fecha</td>
                             <td>@item.Descripcion</td>
                             <td class="td-btn">
@@ -49,6 +45,9 @@
                 </table>
             </div>
         </div>
+        <button type="button">
+            <a href="https://localhost:44308/Citas/AddAppointmentAdmin">Habilitar una nueva cita</a>
+        </button>
     </body>
 }
 @if (Session["UserType"] == null | (Session["UserType"] != null && Session["UserType"].Equals(false)))

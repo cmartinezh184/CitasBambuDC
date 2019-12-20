@@ -3,38 +3,37 @@
 @if (Session["UserType"] != null && Session["UserType"].Equals(false))
 {
     <link rel="stylesheet" type="text/css" href="~/Content/appointment.css" />
-
     <div class="container" id="container">
         <div class="form-container appointment-container">
-            </form>
             @using (Html.BeginForm("CrearAppointment", "Citas", FormMethod.Post))
             {
                 <button id="backToList" type="button" class="btn-backTo" style="width:1px">
-                    <img alt="volver a lista de pacientes" src="~/Imgs/back.png" />
+                    <a href="https://localhost:44308/Citas/ListAppointmentsCitas">
+                        <img alt="volver a lista de pacientes" src="~/Imgs/back.png" />
+                    </a>
                 </button>
-                <form action="#">
-                    <h2>Agendar Cita</h2>
-                    <input id="nombreCompletoCita" placeholder="Su nombre completo aquí" />
-                    <input id="cedulaPersonaCita" name="cedula" placeholder="Ingrese su cédula aquí" required = "required"/>
-                    <select id="fechasDisponiblesCita" name="fecha" required = "required">
-                        <option disabled selected style="visibility: hidden">Fechas disponibles para las citas</option>
-                        @foreach (var item in Model)
-                        {
-                            <option>@item.Fecha</option>
-                        }
-                    </select>
-                    <select id="descripcionServicio" name="descripcion" required = "required">
-                        <option disabled selected style="visibility: hidden"> Seleccione el servicio de la clínica a utilizar</option>
-                        <option> Radiología </option>
-                        <option> Revisión </option>
-                        <option> Extracción </option>
-                    </select>
-                    <br />
-                    <br />
-                    <button type="submit"> Reservar </button>
-                </form>
-            }
-        </div>
+                    <form action="#">
+                        <h2>Agendar Cita</h2>
+                        <input id="cedulaPersonaCita" name="cedula" placeholder="Ingrese su cédula aquí" required="required" />
+                        <select id="fechasDisponiblesCita" name="fecha" required="required">
+                            <option disabled selected style="visibility: hidden">Fechas disponibles para las citas</option>
+                            @foreach (var item in Model)
+                            {
+                                <option>@item.Fecha</option>
+                            }
+                        </select>
+                        <select id="descripcionServicio" name="descripcion" required="required">
+                            <option disabled selected style="visibility: hidden"> Seleccione el servicio de la clínica a utilizar</option>
+                            <option> Radiología </option>
+                            <option> Revisión </option>
+                            <option> Extracción </option>
+                        </select>
+                        <br />
+                        <br />
+                        <button type="submit"> Reservar </button>
+                    </form>
+                }
+            </div>
     </div>
 }
 @if (Session["UserType"] == null | (Session["UserType"] != null && Session["UserType"].Equals(true)))

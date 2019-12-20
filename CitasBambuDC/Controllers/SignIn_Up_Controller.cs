@@ -59,7 +59,7 @@ namespace CitasBambuDC.Controllers
                 }
                 else if (Session["UserType"].Equals(false))
                 {
-                    return RedirectToAction("Appointment", "Citas");
+                    return RedirectToAction("ListAppointmentsCitas", "Citas");
       
                 }
                 else

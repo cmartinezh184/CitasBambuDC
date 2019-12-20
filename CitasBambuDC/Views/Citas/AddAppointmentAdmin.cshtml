@@ -2,23 +2,32 @@
 @{
     ViewBag.Title = "AddAppointmentAdmin";
 }
+@if (Session["UserType"] != null && Session["UserType"].Equals(true))
+{
+    <link rel="stylesheet" type="text/css" href="~/Content/appointment.css" />
 
-<link rel="stylesheet" type="text/css" href="~/Content/appointment.css" />
-
-<div class="container-small" id="container">
-    <div class="form-container appointment-container">
-        <button id="backToList" type="button" class="btn-backTo">
-            <img alt="volver a lista de pacientes" src="~/Imgs/back.png"/>
-        </button>
-        <form action="#">
-            <h2>Añadir espacio para cita</h2>
-            <input type="date" id="fechaNuevaHabilitada" placeholder="Fecha" />
-            <input type="time" id="horaNuevaHabilitada" placeholder="Hora"/>
-            <br />
-            <br />
-            <button> Añadir espacio </button>
-        </form>
+    <div class="container-small" id="container">
+        <div class="form-container appointment-container">
+            <button id="backToList" type="button" class="btn-backTo">
+                <a href="https://localhost:44308/Citas/ListAppointments"/a>
+                <img alt="volver a lista de pacientes" src="~/Imgs/back.png" />
+            </button>
+            @using (Html.BeginForm("CrearNuevaCita", "Citas", FormMethod.Post))
+            {
+                <form action="#">
+                    <h2>Añadir espacio para cita</h2>
+                    <input name="date" type="datetime-local" id="fechaNuevaHabilitada" placeholder="Fecha" required="required" />
+                    <br />
+                    <br />
+                    <button type="submit"> Añadir espacio </button>
+                </form>
+            }
+        </div>
     </div>
-</div>
+}
+@if (Session["UserType"] == null | (Session["UserType"] != null && Session["UserType"].Equals(false)))
+{
+    Response.Redirect("https://localhost:44308/");
+}
 
 
