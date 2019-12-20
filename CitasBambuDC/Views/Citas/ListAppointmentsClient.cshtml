@@ -1,0 +1,73 @@
+﻿
+@model IEnumerable<CitasBambuDC.Models.Cita>
+
+@if (Session["UserType"] != null && Session["UserType"].Equals(false))
+{
+       
+<link rel="stylesheet" type="text/css" href="~/Content/list_appointment.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<body>
+    <a href="" class="float">
+        <img alt="volver a lista de pacientes" src="~/Imgs/logout.png" class="my-float" />
+    </a>
+    <div class="label-container">
+        <div class="label-text">Cerrar Sesión</div>
+    </div>
+    <div class="row" style="width: 1400px; padding-top: 20px">
+        <div class="col-xl-12 table-wrapper-scroll-y custom-scrollbar">
+            <table class="table table-hover">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th width="170px" style="text-align:left; padding-bottom: 20px">
+                            Agendar Cita
+                            <button id="backToList" type="button" class="btn-schedule">
+                                <img alt="volver a lista de pacientes" src="~/Imgs/calendar.png" />
+                            </button>
+                        </th>
+                        <th colspan="4" style="text-align: center; font-size: 25px; padding: 20px">
+                            Mis Citas
+                        </th>
+                    </tr>
+                    <tr>
+                        <th scope="col" width="120px">Editar cita</th>
+                        <th scope="col">Id Cita</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col" width="120px">Eliminar cita</th>
+                    </tr>
+                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        if (item.ClienteAsignado.ToString().Equals(Session["PersonaID"]))
+                                        {
+                                            <tr>
+                                                <td class="td-btn">
+                                                    <button type="button"
+                                                            class="btn">
+                                                        <span class="fas fa-edit"></span>
+                                                    </button>
+                                                </td>
+                                                <th scope="row">@item.CitasID</th>
+                                                <td>@item.Fecha</td>
+                                                <td>@item.Descripcion</td>
+                                                <td class="td-btn">
+                                                    <button type="button" class="btn">
+                                                        <span class="fas fa-trash"></span>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                    </div>
+                </div>
+            </body>  
+}
+@if (Session["UserType"] == null | (Session["UserType"] != null && Session["UserType"].Equals(true)))
+{
+    Response.Redirect("https://localhost:44308/");
+}

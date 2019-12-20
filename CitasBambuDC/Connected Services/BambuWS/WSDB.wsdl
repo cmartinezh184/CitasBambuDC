@@ -34,15 +34,27 @@
       <s:element name="LogInResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="LogInResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="LogInResult" type="tns:SerializablePersona" />
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="SerializablePersona">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PersonaID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cedula" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrimerNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SegundoNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrimerApellido" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SegundoApellido" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Correo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsAdmin" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="CrearCita">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="fecha" nillable="true" type="s:dateTime" />
-            <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fecha" type="s:dateTime" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -72,6 +84,7 @@
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="cedulaCliente" type="s:int" />
             <s:element minOccurs="1" maxOccurs="1" name="idCita" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -109,6 +122,16 @@
           <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
         </s:sequence>
       </s:complexType>
+      <s:element name="ListaDeCitas">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListaDeCitasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaDeCitasResult" type="tns:ArrayOfSerializableCita" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="InfoPersona">
         <s:complexType>
           <s:sequence>
@@ -123,18 +146,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="SerializablePersona">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="PersonaID" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="PrimerNombre" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="SegundoNombre" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="PrimerApellido" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="SegundoApellido" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Correo" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="EsAdmin" type="s:boolean" />
-        </s:sequence>
-      </s:complexType>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="CrearUsuarioSoapIn">
@@ -173,6 +184,12 @@
   <wsdl:message name="CitasDeClienteSoapOut">
     <wsdl:part name="parameters" element="tns:CitasDeClienteResponse" />
   </wsdl:message>
+  <wsdl:message name="ListaDeCitasSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaDeCitas" />
+  </wsdl:message>
+  <wsdl:message name="ListaDeCitasSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaDeCitasResponse" />
+  </wsdl:message>
   <wsdl:message name="InfoPersonaSoapIn">
     <wsdl:part name="parameters" element="tns:InfoPersona" />
   </wsdl:message>
@@ -203,6 +220,10 @@
     <wsdl:operation name="CitasDeCliente">
       <wsdl:input message="tns:CitasDeClienteSoapIn" />
       <wsdl:output message="tns:CitasDeClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeCitas">
+      <wsdl:input message="tns:ListaDeCitasSoapIn" />
+      <wsdl:output message="tns:ListaDeCitasSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="InfoPersona">
       <wsdl:input message="tns:InfoPersonaSoapIn" />
@@ -258,6 +279,15 @@
     </wsdl:operation>
     <wsdl:operation name="CitasDeCliente">
       <soap:operation soapAction="http://tempuri.org/CitasDeCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeCitas">
+      <soap:operation soapAction="http://tempuri.org/ListaDeCitas" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -324,6 +354,15 @@
     </wsdl:operation>
     <wsdl:operation name="CitasDeCliente">
       <soap12:operation soapAction="http://tempuri.org/CitasDeCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeCitas">
+      <soap12:operation soapAction="http://tempuri.org/ListaDeCitas" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
