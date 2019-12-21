@@ -20,7 +20,7 @@
             <table class="table table-hover">
                 <thead class="thead-inverse">
                     <tr>
-                        <th width="170px" style="text-align:left; padding-bottom: 20px">
+                        <th width="250px" style="text-align:left; padding-bottom: 20px">
                             Agendar Cita
                             <button id="backToList" type="button" class="btn-schedule">
                                 <a href="https://localhost:44308/Citas/Appointment">
@@ -28,31 +28,36 @@
                                 </a>
                             </button>
                         </th>
-                        <th colspan="4" style="text-align: center; font-size: 25px; padding: 20px">
+                        <th style="text-align: center; font-size: 25px; padding: 20px;">
                             Mis Citas
+                        </th>
+                        <th width="350px">
+                            @using (Html.BeginForm("LiberarCita", "Citas", FormMethod.Post))
+                            {
+                                <form>
+                                    <input name="idCita" placeholder="N° Cita" />
+                                    <button type="submit" class="btn-schedule">
+                                        <span class="fas fa-trash"></span>
+                                    </button>
+                                </form>
+                            }
                         </th>
                     </tr>
                     <tr>
                         <th scope="col">Id Cita</th>
                         <th scope="col">Fecha</th>
                         <th scope="col">Descripción</th>
-                        <th scope="col" width="120px">Eliminar cita</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        if (item.ClienteAsignado.ToString().Equals(Session["PersonaID"]))
+                        if (item.ClienteAsignado.ToString().Equals(Session["Cedula"]))
                         {
                             <tr>
                                 <th scope="row">@item.CitasID</th>
                                 <td>@item.Fecha</td>
                                 <td>@item.Descripcion</td>
-                                <td class="td-btn">
-                                    <button type="button" class="btn" onclick="new BambuWS.WSDBSoapClient().BorrarCita(item.CitasID)">
-                                        <span class="fas fa-trash"></span>
-                                    </button>
-                                </td>
                             </tr>
                         }
                     }

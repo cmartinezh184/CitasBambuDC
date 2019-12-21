@@ -336,7 +336,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Citas\EditAppointment.cshtml" />
-    <Content Include="Views\Citas\ListAppointmentsClient.cshtml" />
+    <Content Include="Views\Citas\ListAppointmentsCitas.cshtml" />
     <Content Include="Views\Citas\AddAppointmentAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>

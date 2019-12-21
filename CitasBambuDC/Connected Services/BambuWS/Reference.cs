@@ -313,6 +313,12 @@ namespace CitasBambuDC.BambuWS {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CrearCita", ReplyAction="*")]
         System.Threading.Tasks.Task<bool> CrearCitaAsync(System.DateTime fecha);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/LiberarCita", ReplyAction="*")]
+        bool LiberarCita(int idCita);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/LiberarCita", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> LiberarCitaAsync(int idCita);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/BorrarCita", ReplyAction="*")]
         bool BorrarCita(int idCita);
         
@@ -888,6 +894,14 @@ namespace CitasBambuDC.BambuWS {
         
         public System.Threading.Tasks.Task<bool> CrearCitaAsync(System.DateTime fecha) {
             return base.Channel.CrearCitaAsync(fecha);
+        }
+        
+        public bool LiberarCita(int idCita) {
+            return base.Channel.LiberarCita(idCita);
+        }
+        
+        public System.Threading.Tasks.Task<bool> LiberarCitaAsync(int idCita) {
+            return base.Channel.LiberarCitaAsync(idCita);
         }
         
         public bool BorrarCita(int idCita) {

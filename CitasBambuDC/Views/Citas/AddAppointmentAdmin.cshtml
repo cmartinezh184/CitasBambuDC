@@ -9,8 +9,9 @@
     <div class="container-small" id="container">
         <div class="form-container appointment-container">
             <button id="backToList" type="button" class="btn-backTo">
-                <a href="https://localhost:44308/Citas/ListAppointments"/a>
+                <a href="https://localhost:44308/Citas/ListAppointments">
                 <img alt="volver a lista de pacientes" src="~/Imgs/back.png" />
+                </a>
             </button>
             @using (Html.BeginForm("CrearNuevaCita", "Citas", FormMethod.Post))
             {

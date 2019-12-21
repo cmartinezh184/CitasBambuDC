@@ -65,6 +65,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="LiberarCita">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idCita" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LiberarCitaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LiberarCitaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="BorrarCita">
         <s:complexType>
           <s:sequence>
@@ -167,6 +181,12 @@
   <wsdl:message name="CrearCitaSoapOut">
     <wsdl:part name="parameters" element="tns:CrearCitaResponse" />
   </wsdl:message>
+  <wsdl:message name="LiberarCitaSoapIn">
+    <wsdl:part name="parameters" element="tns:LiberarCita" />
+  </wsdl:message>
+  <wsdl:message name="LiberarCitaSoapOut">
+    <wsdl:part name="parameters" element="tns:LiberarCitaResponse" />
+  </wsdl:message>
   <wsdl:message name="BorrarCitaSoapIn">
     <wsdl:part name="parameters" element="tns:BorrarCita" />
   </wsdl:message>
@@ -209,6 +229,10 @@
     <wsdl:operation name="CrearCita">
       <wsdl:input message="tns:CrearCitaSoapIn" />
       <wsdl:output message="tns:CrearCitaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LiberarCita">
+      <wsdl:input message="tns:LiberarCitaSoapIn" />
+      <wsdl:output message="tns:LiberarCitaSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="BorrarCita">
       <wsdl:input message="tns:BorrarCitaSoapIn" />
@@ -253,6 +277,15 @@
     </wsdl:operation>
     <wsdl:operation name="CrearCita">
       <soap:operation soapAction="http://tempuri.org/CrearCita" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LiberarCita">
+      <soap:operation soapAction="http://tempuri.org/LiberarCita" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -328,6 +361,15 @@
     </wsdl:operation>
     <wsdl:operation name="CrearCita">
       <soap12:operation soapAction="http://tempuri.org/CrearCita" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LiberarCita">
+      <soap12:operation soapAction="http://tempuri.org/LiberarCita" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
